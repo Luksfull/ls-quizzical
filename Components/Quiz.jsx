@@ -16,14 +16,18 @@ export default function Quiz() {
     React.useEffect(() => {
         setLoading(true)
         fetch('https://opentdb.com/api.php?amount=5')
-            .then(res => decode(res.json()))
+            .then(res => res.json())
             .then(data => {
 							  const questionArray = data.results.map(element => {
+									let incorrectAnswers = []
+									element.incorrect_answers.map(answer => {
+										incorrectAnswers.push(decode(answer))
+									})
 									return {
-											question: (element.question.toString()),
-											correct_answer: (element.correct_answer.toString()),
-											incorrect_answers: (element.incorrect_answers.toString()),
-											answers: (shuffle([element.correct_answer].concat(element.incorrect_answers))),
+											question: decode(element.question.toString()),
+											correct_answer: decode(element.correct_answer.toString()),
+											incorrect_answers: incorrectAnswers,
+											answers: (shuffle([decode(element.correct_answer)].concat((incorrectAnswers)))),
 											id: nanoid()
 									}                       
 							})

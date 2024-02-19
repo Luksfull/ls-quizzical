@@ -20,7 +20,7 @@ body {
     top: 50%;
     transform: translate(-50%, -60%);
     text-align: center;
-    max-width: 50%;
+    width: 80%;
 }
 
 .start-quizzical {
@@ -36,9 +36,9 @@ body {
 }
 
 .start-button {
-    width: 50%;
-    height: 50px;
-    padding: 12px;
+    width: fit-content;
+    height: fit-content;
+    padding: 1em;
     border-radius: 15px;
     border: none;
     background: #4D5B9E;
@@ -100,7 +100,7 @@ body {
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 0.9em;
+    font-size: 0.7em;
     color: #293264;
     padding: 5px;
     border: 1px solid #4D5B9E;
