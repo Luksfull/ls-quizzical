@@ -110,7 +110,8 @@ export default function Quiz() {
                 }
                 {
                     !completed && !loading ? 
-                    <button 
+                    <button
+												disabled={userAnswers.length !== 5 ? true : false} 
                         className='btn'
                         onClick={checkAnswers}
                         >Check Answers

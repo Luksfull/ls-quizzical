@@ -48,7 +48,17 @@ body {
     text-decoration: none;
 }
 
-.start-button:hover {
+.btn {
+		cursor: pointer;
+}
+
+.btn:disabled, .btn:disabled:hover {
+		background: #7184d744;
+		color:#7183D7;
+		cursor: not-allowed;
+}
+
+.btn:hover {
     background: #7183D7;
 }
 
