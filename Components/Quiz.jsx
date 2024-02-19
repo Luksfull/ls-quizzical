@@ -46,7 +46,7 @@ export default function Quiz() {
     }
     
     const handleChange = (answer, questionId) => {
-        console.log(answer, questionId)
+        // console.log(answer, questionId)
         const userAnswer = [...userAnswers]
         const isCorrect = answer === currentData[questionId].correct_answer
         userAnswer[questionId] = {
@@ -70,6 +70,21 @@ export default function Quiz() {
     const playAgain = () => {
         navigate('/')
     }
+
+		const arrayElementsNotEmpty = array => {
+				for (let i = 0; i < array.length; i++) {
+					if (!array[i]) {
+						return(false)
+					}
+				}
+				return(true)
+		}
+
+		const handleLabelClick = () => {
+				if (completed) {
+					event.preventDefault()
+				}
+		}
     
     return (
         <div className='quiz'>
@@ -81,8 +96,9 @@ export default function Quiz() {
                     <p className='question'>{question.question}</p>
                     <form className='answer-container'>
                         {question.answers.map(answer => (
-                            <div>
-                                <input 
+                            <div className={completed ? 'answers-submitted' : ''}>
+                                <input
+																		disabled={completed ? true : false}
                                     className='answer-btn'
                                     type='radio'
                                     name='answer'
@@ -91,7 +107,7 @@ export default function Quiz() {
                                     id={answer}
                                     onChange={() => handleChange(answer, questionIndex)}
                                 />
-                                <label 
+                                <label
                                     className={`answer-label ${
                                         completed && userAnswers[questionIndex].correctAnswer === answer 
                                         ? `correct` 
@@ -111,7 +127,7 @@ export default function Quiz() {
                 {
                     !completed && !loading ? 
                     <button
-												disabled={userAnswers.length !== 5 ? true : false} 
+												disabled={arrayElementsNotEmpty(userAnswers) && userAnswers.length === 5 ? false : true} 
                         className='btn'
                         onClick={checkAnswers}
                         >Check Answers
