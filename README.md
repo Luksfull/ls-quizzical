@@ -1,13 +1,9 @@
-# cDEQg7HM
+Quizzical is a simple quiz app, developed with React.
 
-Warning: Vite enforces using jsx syntax inside jsx/tsx files, so it will complain about that. Solution: rename `.js` files to `.jsx` :)
+Data is retrieved via Open Trivia Database API (https://opentdb.com/). 
 
-Quick start:
+Starting the quiz fetches 5 questions, that can only have one correct answer.
 
-```
-$ npm install
-$ npm start
-````
+After submitting the quiz answers, the app calculates the number of correct answers and gives the option to go back to the starting page to play again.
 
-Head over to https://vitejs.dev/ to learn more about using vite
 
